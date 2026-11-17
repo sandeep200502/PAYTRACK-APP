@@ -1,0 +1,17 @@
+{
+  "name": "paytrack-app",
+  "private": true,
+  "version": "2.0.0",
+  "description": "PayTrack: backend (Spring Boot) and frontend (React) in one folder",
+  "scripts": {
+    "setup": "npm install && npm install --prefix frontend",
+    "dev": "concurrently -k -n api,web -c blue,green \"npm:backend\" \"npm:frontend\"",
+    "backend": "cd backend && mvn spring-boot:run",
+    "frontend": "cross-env VITE_API_URL=http://localhost:4000/api npm run dev --prefix frontend",
+    "test": "cd backend && mvn test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3"
+  }
+}
